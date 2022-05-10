@@ -1,32 +1,130 @@
-const Employee = require('../lib/Employee');
+const Employee = require("../lib/Employee");
 
 describe("Employee", () => {
-    describe:("Intitialization"), () => {
-        it("should instantiate an employee instance", () => {
-            const employee = new Employee()
+  describe("Initialization", () => {
+    it("should instantiate employee instance", () => {
+      
+    // arrange
+      
+      const employee = new Employee();
 
-            expect(typeof employee).tobe("object");
-        });
+    // act
 
-        it("Should set name via constructor arguments", () => {
-            const name = "Alice"
-        })
-     });
-});
+      
+    // assert
 
+      expect(typeof employee).toBe("object");
+    });
 
+    it("should set name via constrcutor argument", () => {
 
+    // arrange
 
+      const name = "Alice";
+    
+    // act
 
-describe("Getter methods", () => {
+      const employee = new Employee(name);
+    
+    // assert
+
+      expect(employee.name).toBe(name);
+    });
+
+    it("should set id via constrcutor argument", () => {
+      
+    // arrange
+
+      const id = 100;
+      
+    // act
+
+      const employee = new Employee("Alice", id);
+      
+    // assert
+
+      expect(employee.id).toBe(id);
+    });
+
+    it("should set email via constrcutor argument", () => {
+      
+    // arrange
+
+      const email = "test@test.com";
+    
+    // act
+
+      const employee = new Employee("Alice", 100, email);
+    
+    // assert
+
+      expect(employee.email).toBe(email);
+    });
+  });
+
+  describe("Getter methods", () => {
     it("should get name via getName()", () => {
+      
+    // arrange
 
-        const name = "Alice";
+      const name = "Alice";
+      
+    // act
 
-        const employee = new Employee(name, 100, "test@test.com")
+      const employee = new Employee(name, 100, "test@test.com");
+      const employeeName = employee.getName();
+      
+    // assert
 
+      expect(employeeName).toBe(name);
+    });
 
+    it("should get id via getId())", () => {
+      
+    // arrange
+      
+        const id = 100;
+      
+    // act
+      
+      const employee = new Employee("alice", id, "test@test.com");
+      const employeeId = employee.getId();
+      
+    // assert
+      
+      expect(employeeId).toBe(id);
+    });
 
+    it("should get email via getEmail()", () => {
+      
+    // arrange
 
-    }
+      const email = "test@test.com";
+      
+    // act
+
+      const employee = new Employee("Alice", 100, email);
+      const employeeEmail = employee.getEmail();
+      
+    // assert
+
+      expect(employeeEmail).toBe(email);
+    });
+
+    it("should get role via getRole()", () => {
+      
+    // arrange
+
+      const role = "Employee";
+      
+    // act
+
+      const employee = new Employee("Alice", 100, "test@test.com");
+      const employeeRole = employee.getRole();
+      
+    // assert
+      
+      expect(employeeRole).toBe(role);
+    });
+  });
 });
